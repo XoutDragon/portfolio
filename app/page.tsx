@@ -15,6 +15,9 @@ import { AnimatePresence } from "motion/react";
 export default function Home() {
   return (
     <>
+    <div className="md:hidden"> 
+Mobile view is under construction. View on desktop for the full experience! 
+    </div>
       <DesktopView />
     </>
   );
@@ -24,7 +27,7 @@ const DesktopView = () => {
   const { setUnlocked, openApp, setOpenApp } = usePortfolioStore();
 
   return (
-    <>
+    <div className="hidden md:block">
       <Image
         src="/mac_tahoe_wallpaper.jpg"
         alt="Lock Screen"
@@ -32,7 +35,7 @@ const DesktopView = () => {
         className="object-cover"
         priority
       />
-      <div className="relative h-screen overflow-hidden hidden md:block">
+      <div className="relative h-screen overflow-hidden">
         <LockScreen onUnlocked={setUnlocked} />
         <AnimatePresence>
           {openApp === "projects" && (
@@ -55,6 +58,6 @@ const DesktopView = () => {
         </AnimatePresence>
       </div>
       <DockWrapper />
-    </>
+    </div>
   );
 };
