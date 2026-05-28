@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Github",
+    "icon": "FaGithub",
+    "link": "https://github.com/XoutDragon",
+    "containerClassName": "bg-gray-800",
+    "iconClassName": "text-white"
+  },
+  {
+    "name": "LinkedIn",
+    "icon": "FaLinkedin",
+    "link": "https://www.linkedin.com/in/jason-wang-30b40a294/",
+    "containerClassName": "bg-white",
+    "iconClassName": "text-[#0A66C2]"
+  },
+  {
+    "name": "Handshake",
+    "icon": "SiHandshake",
+    "link": "https://app.joinhandshake.com/profiles/q9dxhr",
+    "containerClassName": "bg-[#D3FB52]",
+    "iconClassName": "text-black"
+  }
+]

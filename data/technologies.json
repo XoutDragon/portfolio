@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Bash",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
+    "link": "https://www.gnu.org/software/bash/"
+  },
+  {
+    "name": "C",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+    "link": "https://www.c-language.org/"
+  },
+  {
+    "name": "C++",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+    "link": "https://www.cplusplus.com/"
+  },
+  {
+    "name": "CompTIA A+",
+    "icon": "https://images3.cmp.optimizely.com/83adafb0b71111ef888eca5646afc7d8",
+    "link": "https://www.comptia.org/certifications/a"
+  },
+  {
+    "name": "Convex",
+    "icon": "https://workos.imgix.net/app-branding/environment_01K0YV0RY79WTD68FKFBP5R9C3/01K2JG5D7KDWR5NHG9GRW9AYHM",
+    "link": "https://www.convex.dev/"
+  },
+  {
+    "name": "Docker",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    "link": "https://www.docker.com/"
+  },
+  {
+    "name": "Express",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    "link": "https://expressjs.com/"
+  },
+  {
+    "name": "FastAPI",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+    "link": "https://fastapi.tiangolo.com/"
+  },
+  {
+    "name": "Flask",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+    "link": "https://flask.palletsprojects.com/"
+  },
+  {
+    "name": "Git",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    "link": "https://git-scm.com/"
+  },
+  {
+    "name": "GitHub",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    "link": "https://github.com/"
+  },
+  {
+    "name": "IntelliJ",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",
+    "link": "https://www.jetbrains.com/idea/"
+  },
+  {
+    "name": "Java",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "link": "https://www.java.com/"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  },
+  {
+    "name": "Linux",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+    "link": "https://www.linux.org/"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    "link": "https://www.mongodb.com/"
+  },
+  {
+    "name": "NextJS",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    "link": "https://nextjs.org/"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "link": "https://www.postgresql.org/"
+  },
+  {
+    "name": "Postman",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+    "link": "https://www.postman.com/"
+  },
+  {
+    "name": "Prisma",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+    "link": "https://www.prisma.io/"
+  },
+  {
+    "name": "PyCharm",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg",
+    "link": "https://www.jetbrains.com/pycharm/"
+  },
+  {
+    "name": "Python",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "link": "https://www.python.org/"
+  },
+  {
+    "name": "Quart",
+    "icon": "https://quart.palletsprojects.com/en/latest/_static/quart-logo.svg",
+    "link": "https://quart.palletsprojects.com/en/latest/"
+  },
+  {
+    "name": "ReactJS",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    "link": "https://reactjs.org/"
+  },
+  {
+    "name": "SQL",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg",
+    "link": "https://www.w3schools.com/sql/"
+  },
+  {
+    "name": "SQLite",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    "link": "https://www.sqlite.org/"
+  },
+
+  {
+    "name": "TailwindCSS",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    "link": "https://tailwindcss.com/"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "link": "https://www.typescriptlang.org/"
+  },
+  {
+    "name": "Vercel",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    "link": "https://vercel.com/"
+  },
+  {
+    "name": "VSCode",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+    "link": "https://code.visualstudio.com/"
+  },
+  {
+    "name": "Windows",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+    "link": "https://www.microsoft.com/windows"
+  }
+]

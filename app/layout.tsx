@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
+import { Roboto } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { DockWrapper } from "@/components/dock-wrapper";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={cn("h-full", "antialiased", roboto.className)}>
+      <body className="relative min-h-full flex flex-col px-4 overflow-hidden">
+        <TooltipProvider>
+          <Image
+            src="/mac_tahoe_wallpaper.jpg"
+            alt="Lock Screen"
+            fill
+            className="object-cover"
+            priority
+          />
+          {children}
+          <DockWrapper />
+        </TooltipProvider>
+      </body>
     </html>
   );
 }
