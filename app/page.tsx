@@ -47,6 +47,11 @@ const DesktopView = () => {
           {openApp === "about" && (
             <AboutWindow key="about" onClose={() => setOpenApp(null)} />
           )}
+          {openApp === "resume" && (
+            <div className='w-full h-full flex items-center justify-center p-4 z-40'>
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" width={480} height={270} allow="autoplay" />
+            </div>
+          )}
         </AnimatePresence>
       </div>
       <DockWrapper />

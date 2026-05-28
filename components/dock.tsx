@@ -117,9 +117,12 @@ export const Dock = ({ unlocked }: { unlocked: boolean }) => {
 
     return {
       title: "Resume",
-      href: "/resume.pdf",
+      href: "#",
       icon: (
-        <div className="w-full h-full rounded-xl flex items-center justify-center bg-white/20 backdrop-blur-lg border-white/10">
+        <div
+          className="w-full h-full rounded-xl flex items-center justify-center bg-white backdrop-blur-lg border-white/10"
+          onClick={() => setOpenApp(openApp === "resume" ? null : "resume")}
+        >
           {IconComponent && <IconComponent className="w-4/5 h-4/5" />}
         </div>
       ),
