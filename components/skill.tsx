@@ -24,7 +24,9 @@ const useItemsPerPage = () => {
 
   useEffect(() => {
     const update = () => {
-      setItemsPerPage(window.innerWidth >= 1280 ? 48 : 24);
+      setItemsPerPage(
+        window.innerWidth >= 1280 ? (window.innerWidth >= 768 ? 24 : 18) : 12,
+      );
     };
     update();
     window.addEventListener("resize", update);
@@ -183,7 +185,7 @@ export const LaunchpadWindow = ({ onClose }: { onClose: () => void }) => {
           animate="center"
           exit="exit"
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="grid lg:grid-cols-6 xl:grid-cols-8 gap-24 mx-auto"
+          className="grid md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-24 mx-auto"
         >
           {pages[currentPage]?.map((app, i) => (
             <AppIcon key={i} app={app} />

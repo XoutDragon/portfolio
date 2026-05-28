@@ -9,10 +9,18 @@ import { ProjectsWindow } from "@/components/project";
 import { AnimatePresence } from "motion/react";
 
 export default function Home() {
+  return (
+    <>
+      <DesktopView />
+    </>
+  );
+}
+
+const DesktopView = () => {
   const { setUnlocked, openApp, setOpenApp } = usePortfolioStore();
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden hidden md:block">
       <LockScreen onUnlocked={setUnlocked} />
       <AnimatePresence>
         {openApp === "projects" && (
@@ -30,4 +38,4 @@ export default function Home() {
       </AnimatePresence>
     </div>
   );
-}
+};

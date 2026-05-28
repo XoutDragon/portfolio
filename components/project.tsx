@@ -17,35 +17,14 @@ import { GrDocument } from "react-icons/gr";
 import { IoIosCloudOutline } from "react-icons/io";
 import { cn } from "@/lib/utils";
 
+import projects from "@/data/projects.json";
+
 interface Project {
   name: string;
   description: string;
   github: string;
   link?: string;
 }
-
-const projects: Project[] = [
-  {
-    name: "Portfolio",
-    description:
-      "My personal portfolio website built with Next.js and TailwindCSS.",
-    github: "https://github.com/you/portfolio",
-    link: "https://portfolio.com",
-  },
-  {
-    name: "Project Two",
-    description:
-      "A short description of what this project does and the stack used.",
-    github: "https://github.com/you/project-two",
-  },
-  {
-    name: "Project Three",
-    description:
-      "A short description of what this project does and the stack used.",
-    github: "https://github.com/you/project-three",
-    link: "https://project-three.com",
-  },
-];
 
 export const ProjectsWindow = ({ onClose }: { onClose: () => void }) => {
   const [selected, setSelected] = useState<Project | null>(null);
@@ -283,7 +262,11 @@ const ProjectDetail = ({
             <ProjectLink
               href={project.link}
               icon={<FiExternalLink className="w-4 h-4 shrink-0" />}
-              label={project.link.replace("https://", "")}
+              label={
+                project.link == "/"
+                  ? "You're already here"
+                  : project.link.replace("https://", "")
+              }
             />
           )}
         </div>
