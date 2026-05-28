@@ -112,7 +112,21 @@ export const Dock = ({ unlocked }: { unlocked: boolean }) => {
     };
   });
 
-  const items = [...navApps, separatorItem, ...socialApps];
+  const resumeApp = () => {
+    const IconComponent = getIcon("GrDocument");
+
+    return {
+      title: "Resume",
+      href: "/resume.pdf",
+      icon: (
+        <div className="w-full h-full rounded-xl flex items-center justify-center bg-white/20 backdrop-blur-lg border-white/10">
+          {IconComponent && <IconComponent className="w-4/5 h-4/5" />}
+        </div>
+      ),
+    };
+  };
+
+  const items = [...navApps, separatorItem, ...socialApps, resumeApp()];
 
   return (
     <motion.div
