@@ -54,8 +54,8 @@ export const WindowWrapper = ({
               x: 0,
               y: 0,
               width: "100vw",
-              height: "calc(100vh - 80px)",
-              top: "46%",
+              height: "calc(100vh - 104px)",
+              top: "47.2%",
               left: "50%",
               borderRadius: 0,
             }

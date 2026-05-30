@@ -5,6 +5,7 @@ import { usePortfolioStore } from "@/hooks/use-portfolio-store";
 
 import { DockWrapper } from "@/components/dock-wrapper";
 
+import { Topbar } from "@/components/topbar";
 import { LockScreen } from "@/components/lock-screen";
 import { AboutWindow } from "@/components/about";
 import { LaunchpadWindow } from "@/components/skill";
@@ -15,19 +16,20 @@ import { AnimatePresence } from "motion/react";
 export default function Home() {
   return (
     <>
-    <div className="md:hidden"> 
-Mobile view is under construction. View on desktop for the full experience! 
-    </div>
+      <div className="md:hidden">
+        Mobile view is under construction. View on desktop for the full
+        experience!
+      </div>
       <DesktopView />
     </>
   );
 }
 
 const DesktopView = () => {
-  const { setUnlocked, openApp, setOpenApp } = usePortfolioStore();
+  const { unlocked, setUnlocked, openApp, setOpenApp } = usePortfolioStore();
 
   return (
-    <div className="hidden md:block">
+    <div className="hidden md:block absolute inset-0">
       <Image
         src="/mac_tahoe_wallpaper.jpg"
         alt="Lock Screen"
@@ -35,6 +37,7 @@ const DesktopView = () => {
         className="object-cover"
         priority
       />
+      <Topbar openApp={openApp} unlocked={unlocked} />
       <div className="relative h-screen overflow-hidden">
         <LockScreen onUnlocked={setUnlocked} />
         <AnimatePresence>
@@ -51,8 +54,13 @@ const DesktopView = () => {
             <AboutWindow key="about" onClose={() => setOpenApp(null)} />
           )}
           {openApp === "resume" && (
-            <div className='w-full h-full flex items-center justify-center p-4 z-40'>
-              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" width={480} height={270} allow="autoplay" />
+            <div className="w-full h-full flex items-center justify-center p-4 z-40">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                width={480}
+                height={270}
+                allow="autoplay"
+              />
             </div>
           )}
         </AnimatePresence>

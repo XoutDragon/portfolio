@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { IoChevronUpCircleOutline } from "react-icons/io5";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import { DateComponent, TimeComponent } from "./time";
 
 export const LockScreen = ({ onUnlocked }: { onUnlocked: () => void }) => {
   const [unlocked, setUnlocked] = useState(false);
@@ -44,7 +45,7 @@ export const LockScreen = ({ onUnlocked }: { onUnlocked: () => void }) => {
       <motion.div
         className={cn(
           "absolute inset-0 z-20",
-          unlocked && "pointer-events-none", // ← add this
+          unlocked && "pointer-events-none",
         )}
         animate={{
           y: unlocked ? "-100%" : "0%",
@@ -58,7 +59,19 @@ export const LockScreen = ({ onUnlocked }: { onUnlocked: () => void }) => {
         }}
       >
         <div className="h-screen flex flex-col items-center justify-around text-white gap-y-6">
-          <LockScreenTime />
+          <div className="text-white text-center flex flex-col">
+            <DateComponent
+              className="text-lg opacity-80 mt-1"
+              weekday="long"
+              month="long"
+              day="numeric"
+            />
+            <TimeComponent
+              className="text-6xl font-light tracking-tight"
+              hour="numeric"
+              minute="2-digit"
+            />
+          </div>
 
           <div className="flex flex-col items-center gap-y-2">
             <Avatar size="sm">
@@ -83,36 +96,6 @@ export const LockScreen = ({ onUnlocked }: { onUnlocked: () => void }) => {
           />
         </div>
       </motion.div>
-    </div>
-  );
-};
-
-const LockScreenTime = () => {
-  const [now, setNow] = useState(new Date());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNow(new Date());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const time = now.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  const date = now.toLocaleDateString([], {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  });
-
-  return (
-    <div className="text-white text-center">
-      <div className="text-6xl font-light tracking-tight">{time}</div>
-      <div className="text-lg opacity-80 mt-1">{date}</div>
     </div>
   );
 };
