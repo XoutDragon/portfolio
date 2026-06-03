@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("h-full", "antialiased", roboto.className)}>
-      <body className="relative min-h-full flex flex-col px-4 overflow-hidden">
+      <body>
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>

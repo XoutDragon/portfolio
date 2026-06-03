@@ -1,11 +1,11 @@
 "use client";
 
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { IoChevronUpCircleOutline } from "react-icons/io5";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
-import { DateComponent, TimeComponent } from "./time";
+import { DateComponent, TimeComponent } from "../time";
 
 export const LockScreen = ({ onUnlocked }: { onUnlocked: () => void }) => {
   const [unlocked, setUnlocked] = useState(false);

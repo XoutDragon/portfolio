@@ -8,7 +8,9 @@ import {
   FaBluetoothB,
   FaWifi,
   FaVolumeUp,
+  FaSignal,
 } from "react-icons/fa";
+import { BatteryComponent } from "@/components/ui/battery";
 import { IoIosSwitch } from "react-icons/io";
 
 import { cn } from "@/lib/utils";
@@ -25,11 +27,44 @@ export const Topbar = ({
   unlocked: boolean;
 }) => {
   return (
+    <>
+      <MobileTopbar />
+      <DesktopTopbar openApp={openApp} unlocked={unlocked} />
+    </>
+  );
+};
+
+const MobileTopbar = () => {
+  return (
+    <div className="relative flex justify-between items-center w-full md:hidden">
+      <TimeComponent
+        hour="numeric"
+        minute="2-digit"
+        className="text-sm opacity-80 pl-4"
+      />
+      <div className="flex items-center gap-x-2">
+        <FaSignal className="w-3 h-3" />
+        <FaWifi className="w-3 h-3" />
+        <BatteryComponent />
+      </div>
+    </div>
+  );
+};
+
+const DesktopTopbar = ({
+  openApp,
+  unlocked,
+}: {
+  openApp: string | null;
+  unlocked: boolean;
+}) => {
+  return (
     <div
       className={cn(
-        "fixed top-0 left-0 right-0 h-6 bg-transparent backdrop-blur-sm flex duration-500 transition-all items-center text-sm z-50 justify-between select-none px-3",
+        "hidden fixed top-0 left-0 right-0 h-6 bg-transparent backdrop-blur-sm md:flex duration-500 transition-all items-center text-sm z-50 justify-between select-none px-3",
         "opacity-0 -translate-y-full",
         unlocked && "opacity-100 translate-y-0",
+        openApp === "skills" && "z-0",
       )}
     >
       <div className="flex items-center h-full">
@@ -77,30 +112,6 @@ export const Topbar = ({
         <button className={buttonClassNames}>
           <TimeComponent hour="numeric" minute="2-digit" />
         </button>
-      </div>
-    </div>
-  );
-};
-
-const BatteryComponent = () => {
-  const [batteryLevel, setBatteryLevel] = useState(100);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBatteryLevel((prev) => Math.max(0.1, prev - 0.01));
-    }, 60_000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="flex w-16 items-center gap-x-1">
-      <span>{`${Math.round(batteryLevel)}%`}</span>
-      <div className="relative flex">
-        <div
-          className="absolute top-2.25 left-0.75 h-1.5 bg-black transition-all duration-500"
-          style={{ width: `calc(${batteryLevel}%* .725)` }}
-        />
-        <FaBatteryEmpty className="w-6 h-6 relative z-10" />
       </div>
     </div>
   );

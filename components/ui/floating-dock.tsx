@@ -6,7 +6,6 @@
  **/
 
 import { cn } from "@/lib/utils";
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -23,6 +22,7 @@ import { useRef, useState } from "react";
 export const FloatingDock = ({
   items,
   desktopClassName,
+  mobileClassName,
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   desktopClassName?: string;
@@ -31,6 +31,7 @@ export const FloatingDock = ({
   return (
     <>
       <FloatingDockDesktop items={items} className={desktopClassName} />
+      <FloatingDockMobile items={items} className={mobileClassName} />
     </>
   );
 };
@@ -64,6 +65,28 @@ const FloatingDockDesktop = ({
         ),
       )}
     </motion.div>
+  );
+};
+
+const FloatingDockMobile = ({
+  items,
+  className,
+}: {
+  items: { title: string; icon: React.ReactNode; href: string }[];
+  className?: string;
+}) => {
+  const mouseX = useMotionValue(Infinity);
+  return (
+    <div
+      className={cn(
+        "mx-auto w-full flex h-16 items-center justify-center gap-3 rounded-2xl px-2 md:hidden",
+        className,
+      )}
+    >
+      {items.map((item) => (
+        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+      ))}
+    </div>
   );
 };
 

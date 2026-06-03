@@ -5,8 +5,111 @@ import { cn, getIcon } from "@/lib/utils";
 import socials from "@/data/socials.json";
 import { usePortfolioStore } from "@/hooks/use-portfolio-store";
 
-export const Dock = ({ unlocked }: { unlocked: boolean }) => {
-  const { openApp, setOpenApp } = usePortfolioStore();
+export const Dock = () => {
+  return (
+    <>
+      <DesktopDock className="md:flex hidden" />
+      <MobileDock className="md:hidden flex" />
+    </>
+  );
+};
+
+export const MobileDock = ({ className }: { className?: string }) => {
+  const { setOpenApp } = usePortfolioStore();
+
+  const navApps = [
+    {
+      title: "Contact",
+      href: "#",
+      icon: (
+        <div
+          className="w-full h-full relative"
+          onClick={() => setOpenApp("contact")}
+        >
+          <Image
+            src="/imessage.png"
+            alt="About"
+            fill
+            className="object-contain scale-115"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "About",
+      href: "#",
+      icon: (
+        <div
+          className="w-full h-full relative"
+          onClick={() => setOpenApp("about")}
+        >
+          <Image
+            src="/notes.png"
+            alt="About"
+            fill
+            className="object-contain scale-115"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "E",
+      href: "#",
+      icon: (
+        <div
+          className="w-full h-full relative"
+          onClick={() => setOpenApp("about")}
+        >
+          <Image
+            src="/notes.png"
+            alt="About"
+            fill
+            className="object-contain scale-115"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      ),
+    },
+  ];
+
+  const resumeApp = () => {
+    const IconComponent = getIcon("GrDocument");
+
+    return {
+      title: "Resume",
+      href: "#",
+      icon: (
+        <div
+          className="w-full h-full rounded-xl flex items-center justify-center bg-white backdrop-blur-lg border-white/10 text-black"
+          onClick={() => setOpenApp("resume")}
+        >
+          {IconComponent && <IconComponent className="w-4/5 h-4/5" />}
+        </div>
+      ),
+    };
+  };
+
+  const items = [...navApps, resumeApp()];
+
+  return (
+    <div
+      className={cn(
+        "fixed bottom-4 left-0 right-0 flex justify-center z-50 px-3",
+        className,
+      )}
+    >
+      <FloatingDock
+        items={items}
+        mobileClassName="bg-white/20 backdrop-blur-lg border-white/10"
+      />
+    </div>
+  );
+};
+
+export const DesktopDock = ({ className }: { className?: string }) => {
+  const { unlocked, openApp, setOpenApp } = usePortfolioStore();
 
   const navApps = [
     {
@@ -140,11 +243,14 @@ export const Dock = ({ unlocked }: { unlocked: boolean }) => {
         y: unlocked ? 0 : 20,
       }}
       transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
+      className={cn(
+        "fixed bottom-4 left-0 right-0 flex justify-center z-60",
+        className,
+      )}
     >
       <FloatingDock
         items={items}
         desktopClassName="bg-white/20 backdrop-blur-lg border-white/10"
-        mobileClassName="hidden"
       />
     </motion.div>
   );
