@@ -79,12 +79,17 @@ const FloatingDockMobile = ({
   return (
     <div
       className={cn(
-        "mx-auto w-full flex h-16 items-center justify-center gap-3 rounded-2xl px-2 md:hidden",
+        "mx-auto w-full flex h-20 items-center justify-evenly rounded-2xl px-2 md:hidden",
         className,
       )}
     >
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer
+          mouseX={mouseX}
+          key={item.title}
+          {...item}
+          device="mobile"
+        />
       ))}
     </div>
   );
@@ -95,11 +100,13 @@ function IconContainer({
   title,
   icon,
   href,
+  device = "desktop",
 }: {
   mouseX: MotionValue;
   title: string;
   icon: React.ReactNode;
   href: string;
+  device?: "desktop" | "mobile";
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -148,6 +155,8 @@ function IconContainer({
 
   const Tag = href === "#" ? "div" : "a";
 
+  const isMobile = device === "mobile";
+
   return (
     <Tag
       {...(href !== "#" ? { href, target: "_blank" } : {})}
@@ -155,7 +164,10 @@ function IconContainer({
     >
       <motion.div
         ref={ref}
-        style={{ width, height }}
+        style={{
+          width: isMobile ? "60px" : widthIcon,
+          height: isMobile ? "60px" : heightIcon,
+        }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="relative flex rounded-xl items-center justify-center"
@@ -173,8 +185,11 @@ function IconContainer({
           )}
         </AnimatePresence>
         <motion.div
-          style={{ width: widthIcon, height: heightIcon }}
-          className="relative flex items-center justify-center overflow-visible"
+          style={{
+            width: isMobile ? "60px" : width,
+            height: isMobile ? "60px" : height,
+          }}
+          className="relative flex items-center justify-center overflow-visible w-full h-full"
         >
           {icon}
         </motion.div>
