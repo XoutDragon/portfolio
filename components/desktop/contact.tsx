@@ -6,9 +6,9 @@ import { useState, useRef, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { Input } from "./ui/input";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import { Avatar, AvatarImage } from "./ui/avatar";
+import { Input } from "../ui/input";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { Avatar, AvatarImage } from "../ui/avatar";
 
 import { WindowWrapper } from "./window-wrapper";
 

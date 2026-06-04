@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import {
   FaCircle,
-  FaBatteryEmpty,
   FaBluetoothB,
   FaWifi,
   FaVolumeUp,
@@ -15,7 +12,7 @@ import { IoIosSwitch } from "react-icons/io";
 
 import { cn } from "@/lib/utils";
 
-import { TimeComponent, DateComponent } from "./time";
+import { TimeComponent, DateComponent } from "../time";
 
 const buttonClassNames = "active:bg-primary/10 px-2 rounded-xs h-full";
 
@@ -40,7 +37,7 @@ const MobileTopbar = () => {
       <TimeComponent
         hour="numeric"
         minute="2-digit"
-        className="text-sm opacity-80 pl-4"
+        className="text-md  pl-4"
       />
       <div className="flex items-center gap-x-2">
         <FaSignal className="w-3 h-3" />

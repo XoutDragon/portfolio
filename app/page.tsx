@@ -3,15 +3,17 @@ import Image from "next/image";
 
 import { usePortfolioStore } from "@/hooks/use-portfolio-store";
 
-import { Topbar } from "@/components/topbar";
+import { Topbar } from "@/components/ui/topbar";
 import { LockScreen } from "@/components/desktop/lock-screen";
-import { AboutWindow } from "@/components/about";
-import { LaunchpadWindow } from "@/components/skill";
-import { ContactWindow } from "@/components/contact";
-import { ProjectsWindow } from "@/components/project";
+import { AboutWindow } from "@/components/desktop/about";
+import { LaunchpadWindow } from "@/components/desktop/skill";
+import { ContactWindow } from "@/components/desktop/contact";
+import { ProjectsWindow } from "@/components/desktop/project";
+
+import { Apps } from "@/components/mobile/apps";
 
 import { AnimatePresence } from "motion/react";
-import { Dock } from "@/components/dock";
+import { Dock } from "@/components/ui/dock";
 
 export default function Home() {
   return (
@@ -33,6 +35,7 @@ const MobileView = () => {
         priority
       />
       <Topbar openApp={null} unlocked={true} />
+      <Apps />
       <Dock />
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { WindowWrapper } from "@/components/window-wrapper";
+import { WindowWrapper } from "./window-wrapper";
 import {
   FaChevronLeft,
   FaChevronRight,
