@@ -73,10 +73,10 @@ const DesktopView = () => {
           {openApp === "resume" && (
             <div className="w-full h-full flex items-center justify-center p-4 z-40">
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                width={480}
-                height={270}
-                allow="autoplay"
+                src="/Jason Wang - Resume.pdf"
+                allowFullScreen
+                height="90%"
+                width="90%"
               />
             </div>
           )}
