@@ -27,13 +27,17 @@ export default function Home() {
 const MobileView = () => {
   return (
     <div className="block md:hidden relative text-white h-svh p-3">
-      <Image
-        src="/mobile-wallpaper.jpg"
-        alt="Lock Screen"
-        fill
-        className="object-cover"
-        priority
-      />
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/mobile-wallpaper.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={100}
+        />
+      </div>
       <Topbar openApp={null} unlocked={true} />
       <Apps />
       <Dock />
@@ -46,14 +50,18 @@ const DesktopView = () => {
 
   return (
     <div className="hidden md:block relative h-screen">
-      <Image
-        src="/mac_tahoe_wallpaper.jpg"
-        alt="Lock Screen"
-        fill
-        className="object-cover"
-        sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
-        priority
-      />
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/mac_tahoe_wallpaper.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={100}
+        />
+      </div>
+
       <Topbar openApp={openApp} unlocked={unlocked} />
       <div className="relative h-screen overflow-hidden">
         <LockScreen onUnlocked={setUnlocked} />

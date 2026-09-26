@@ -39,6 +39,7 @@ const MobileTopbar = () => {
         minute="2-digit"
         className="text-md  pl-4"
       />
+      <div>This is a work in progress</div>
       <div className="flex items-center gap-x-2">
         <FaSignal className="w-3 h-3" />
         <FaWifi className="w-3 h-3" />
